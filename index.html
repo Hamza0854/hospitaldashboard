@@ -61,7 +61,7 @@
             <svg viewBox="0 0 40 40" width="40" height="40">
               <defs>
                 <linearGradient id="bm" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0" stop-color="#6366F1"/><stop offset="1" stop-color="#4338CA"/>
+                  <stop offset="0" stop-color="#2F7BFF"/><stop offset="1" stop-color="#0A2A6B"/>
                 </linearGradient>
               </defs>
               <rect width="40" height="40" rx="12" fill="url(#bm)"/>
@@ -134,9 +134,8 @@
 
       <div class="sidebar-footer">
         <div class="plan-card">
-          <span class="plan-badge"><i class="bi bi-gem"></i> Premium</span>
-          <p class="mb-1 fw-semibold">Subscription active</p>
-          <p class="plan-meta mb-0">Renews on <time datetime="2026-11-21">21 Nov 2026</time></p>
+          <p class="plan-title mb-0">Premium plan</p>
+          <p class="plan-meta mb-0">Renews <time datetime="2026-11-21">21 Nov 2026</time></p>
         </div>
         <ul class="sidebar-utility">
           <li><a class="nav-item-link" href="help.html"><i class="bi bi-question-circle"></i><span class="nav-text">Help Center</span></a></li>
@@ -185,15 +184,15 @@
                 <strong>Notifications</strong><span class="badge-soft">3 new</span>
               </div>
               <a class="notif-item" href="#">
-                <span class="notif-icon tone-rose"><i class="bi bi-heart-pulse"></i></span>
+                <span class="notif-icon"><i class="bi bi-heart-pulse"></i></span>
                 <span><strong>New A&amp;E admission</strong><small>Bay 4 · 5 min ago</small></span>
               </a>
               <a class="notif-item" href="#">
-                <span class="notif-icon tone-amber"><i class="bi bi-box-seam"></i></span>
+                <span class="notif-icon"><i class="bi bi-box-seam"></i></span>
                 <span><strong>Low stock: Amoxicillin 500mg</strong><small>Pharmacy · 32 min ago</small></span>
               </a>
               <a class="notif-item" href="#">
-                <span class="notif-icon tone-emerald"><i class="bi bi-shield-check"></i></span>
+                <span class="notif-icon"><i class="bi bi-shield-check"></i></span>
                 <span><strong>NHIS batch #2041 approved</strong><small>Claims · 1 hr ago</small></span>
               </a>
               <a class="notif-foot" href="notifications.html">View all notifications</a>
@@ -224,104 +223,75 @@
       <main id="main" class="content" tabindex="-1">
 
         <!-- Subscription notice -->
-        <div class="sub-alert reveal" id="subAlert" data-expiry="2026-11-21" role="status">
-          <span class="sub-alert-icon"><i class="bi bi-hourglass-split"></i></span>
+        <!-- <div class="sub-alert" id="subAlert" data-expiry="2026-11-21" role="status">
+          <i class="bi bi-info-circle sub-alert-icon" aria-hidden="true"></i>
           <p class="sub-alert-text mb-0">
-            Your subscription expires on <strong><time datetime="2026-11-21">21 Nov 2026</time></strong>.
-            Please contact <strong>support</strong> for renewal.
-            <span class="sub-alert-days" id="subDays"></span>
+            Your subscription expires on <strong><time datetime="2026-11-21">21 Nov 2026</time></strong>
+            <span class="sub-alert-days" id="subDays"></span>. Please contact <strong>support</strong> for renewal.
           </p>
-          <a class="btn btn-gold btn-sm" href="mailto:support@ksatria.com">Renew now</a>
+          <a class="sub-alert-link" href="mailto:support@adamehospital.com">Renew</a>
           <button class="sub-alert-close" type="button" id="subAlertClose" aria-label="Dismiss notice">
             <i class="bi bi-x-lg"></i>
           </button>
-        </div>
+        </div> -->
 
         <!-- Hero -->
-        <section class="hero reveal" aria-labelledby="heroTitle">
+        <section class="hero" aria-labelledby="heroTitle">
           <div class="hero-body">
-            <span class="eyebrow"><i class="bi bi-stars"></i> Adam eHospital Suite</span>
-            <h1 id="heroTitle"><span id="greeting">Welcome back</span>, <span class="text-gold">System Admin</span></h1>
-            <p class="hero-lead">Every department of your hospital, in one place. Today is <time id="todayDate"></time>.</p>
+            <p class="hero-date"><time id="todayDate"></time></p>
+            <h1 id="heroTitle"><span id="greeting">Welcome back</span>, System Admin</h1>
+            <p class="hero-lead">Every department of your hospital, managed from one place.</p>
             <div class="hero-actions">
-              <a href="registrations-appointments.html" class="btn btn-light-glass"><i class="bi bi-person-plus"></i> New registration</a>
-              <a href="registrations-appointments.html#book" class="btn btn-outline-glass"><i class="bi bi-calendar-plus"></i> Book appointment</a>
+              <a href="registrations-appointments.html" class="btn btn-white"><i class="bi bi-person-plus"></i> New registration</a>
+              <a href="registrations-appointments.html#book" class="btn btn-ghost"><i class="bi bi-calendar-plus"></i> Book appointment</a>
             </div>
           </div>
 
-          <ul class="hero-stats" aria-label="Today at a glance">
-            <li>
-              <span class="hs-icon"><i class="bi bi-people"></i></span>
-              <strong data-count="248">0</strong>
-              <small>Patients today</small>
-            </li>
-            <li>
-              <span class="hs-icon"><i class="bi bi-hospital"></i></span>
-              <strong data-count="82" data-suffix="%">0</strong>
-              <small>Bed occupancy</small>
-            </li>
-            <li>
-              <span class="hs-icon"><i class="bi bi-person-badge"></i></span>
-              <strong data-count="36">0</strong>
-              <small>Doctors on duty</small>
-            </li>
-          </ul>
+          <dl class="hero-stats">
+            <div><dt>Patients today</dt><dd data-count="248">0</dd></div>
+            <div><dt>Bed occupancy</dt><dd data-count="82" data-suffix="%">0</dd></div>
+            <div><dt>Doctors on duty</dt><dd data-count="36">0</dd></div>
+          </dl>
         </section>
 
         <!-- KPI cards -->
-        <section class="kpi-grid" aria-label="Key metrics">
-          <article class="kpi-card reveal tone-indigo">
-            <div class="kpi-top">
-              <span class="kpi-icon"><i class="bi bi-person-walking"></i></span>
-              <span class="trend up"><i class="bi bi-arrow-up-right"></i> 12%</span>
+        <!-- <section class="stat-grid" aria-label="Key metrics">
+          <article class="stat-card">
+            <span class="stat-icon"><i class="bi bi-person-walking"></i></span>
+            <div class="stat-body">
+              <h2 class="stat-label">Outpatient visits</h2>
+              <p class="stat-value" data-count="1284">0</p>
+              <p class="stat-note up">+12% vs yesterday</p>
             </div>
-            <h2 class="kpi-label">Outpatient visits</h2>
-            <p class="kpi-value" data-count="1284">0</p>
-            <svg class="spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true">
-              <path d="M0 26 L14 22 L28 24 L42 15 L56 18 L70 9 L84 12 L100 4 L100 32 L0 32Z" class="spark-fill"/>
-              <polyline points="0,26 14,22 28,24 42,15 56,18 70,9 84,12 100,4" class="spark-line"/>
-            </svg>
           </article>
 
-          <article class="kpi-card reveal tone-emerald">
-            <div class="kpi-top">
-              <span class="kpi-icon"><i class="bi bi-cash-stack"></i></span>
-              <span class="trend up"><i class="bi bi-arrow-up-right"></i> 8.4%</span>
+          <article class="stat-card">
+            <span class="stat-icon"><i class="bi bi-cash-stack"></i></span>
+            <div class="stat-body">
+              <h2 class="stat-label">Revenue today</h2>
+              <p class="stat-value" data-count="84250" data-prefix="GH₵ ">0</p>
+              <p class="stat-note up">+8.4% vs yesterday</p>
             </div>
-            <h2 class="kpi-label">Revenue today</h2>
-            <p class="kpi-value" data-count="84250" data-prefix="GH₵ ">0</p>
-            <svg class="spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true">
-              <path d="M0 24 L14 25 L28 18 L42 20 L56 12 L70 14 L84 7 L100 9 L100 32 L0 32Z" class="spark-fill"/>
-              <polyline points="0,24 14,25 28,18 42,20 56,12 70,14 84,7 100,9" class="spark-line"/>
-            </svg>
           </article>
 
-          <article class="kpi-card reveal tone-amber">
-            <div class="kpi-top">
-              <span class="kpi-icon"><i class="bi bi-file-earmark-medical"></i></span>
-              <span class="trend down"><i class="bi bi-arrow-down-right"></i> 3.1%</span>
+          <article class="stat-card">
+            <span class="stat-icon"><i class="bi bi-file-earmark-medical"></i></span>
+            <div class="stat-body">
+              <h2 class="stat-label">Pending claims</h2>
+              <p class="stat-value" data-count="57">0</p>
+              <p class="stat-note down">−3.1% vs last week</p>
             </div>
-            <h2 class="kpi-label">Pending claims</h2>
-            <p class="kpi-value" data-count="57">0</p>
-            <svg class="spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true">
-              <path d="M0 8 L14 10 L28 7 L42 14 L56 12 L70 18 L84 16 L100 22 L100 32 L0 32Z" class="spark-fill"/>
-              <polyline points="0,8 14,10 28,7 42,14 56,12 70,18 84,16 100,22" class="spark-line"/>
-            </svg>
           </article>
 
-          <article class="kpi-card reveal tone-rose">
-            <div class="kpi-top">
-              <span class="kpi-icon"><i class="bi bi-heart-pulse"></i></span>
-              <span class="trend neutral"><i class="bi bi-dash"></i> Stable</span>
+          <article class="stat-card">
+            <span class="stat-icon"><i class="bi bi-heart-pulse"></i></span>
+            <div class="stat-body">
+              <h2 class="stat-label">Emergency cases</h2>
+              <p class="stat-value" data-count="19">0</p>
+              <p class="stat-note ">Stable since morning</p>
             </div>
-            <h2 class="kpi-label">Emergency cases</h2>
-            <p class="kpi-value" data-count="19">0</p>
-            <svg class="spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true">
-              <path d="M0 18 L14 14 L28 20 L42 12 L56 19 L70 13 L84 17 L100 14 L100 32 L0 32Z" class="spark-fill"/>
-              <polyline points="0,18 14,14 28,20 42,12 56,19 70,13 84,17 100,14" class="spark-line"/>
-            </svg>
           </article>
-        </section>
+        </section> -->
 
         <!-- Modules -->
         <section class="modules" aria-labelledby="modulesTitle">
@@ -333,13 +303,12 @@
             <label class="search-field" for="moduleSearch">
               <i class="bi bi-search" aria-hidden="true"></i>
               <input type="search" id="moduleSearch" placeholder="Search modules…" autocomplete="off" aria-label="Search modules">
-              <kbd aria-hidden="true">/</kbd>
             </label>
           </div>
 
           <div class="chips" role="tablist" aria-label="Filter modules by category">
             <button class="chip active" type="button" role="tab" aria-selected="true" data-filter="all">All</button>
-            <button class="chip" type="button" role="tab" aria-selected="false" data-filter="favourites"><i class="bi bi-star-fill"></i> Favourites</button>
+            <button class="chip" type="button" role="tab" aria-selected="false" data-filter="favourites">Favourites</button>
             <button class="chip" type="button" role="tab" aria-selected="false" data-filter="patient">Patient Care</button>
             <button class="chip" type="button" role="tab" aria-selected="false" data-filter="clinical">Clinical</button>
             <button class="chip" type="button" role="tab" aria-selected="false" data-filter="finance">Finance</button>
@@ -356,7 +325,6 @@
                 <span class="module-icon"><i class="bi bi-person-vcard"></i></span>
                 <h3 class="module-title">Patient Profiling</h3>
                 <p class="module-desc">Demographics, history and visit timeline</p>
-                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
               </a>
             </div>
 
@@ -366,7 +334,6 @@
                 <span class="module-icon"><i class="bi bi-calendar2-check"></i></span>
                 <h3 class="module-title">Registrations &amp; Appointments</h3>
                 <p class="module-desc">Register patients and manage bookings</p>
-                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
               </a>
             </div>
 
@@ -376,7 +343,6 @@
                 <span class="module-icon"><i class="bi bi-hospital"></i></span>
                 <h3 class="module-title">Bed Management</h3>
                 <p class="module-desc">Wards, occupancy and transfers</p>
-                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
               </a>
             </div>
 
@@ -386,7 +352,6 @@
                 <span class="module-icon"><i class="bi bi-tags"></i></span>
                 <h3 class="module-title">Tariff Management</h3>
                 <p class="module-desc">Service prices, packages and schemes</p>
-                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
               </a>
             </div>
 
@@ -396,7 +361,6 @@
                 <span class="module-icon"><i class="bi bi-file-earmark-medical"></i></span>
                 <h3 class="module-title">Claims</h3>
                 <p class="module-desc">Insurance claims and settlements</p>
-                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
               </a>
             </div>
 
@@ -406,7 +370,6 @@
                 <span class="module-icon"><i class="bi bi-receipt"></i></span>
                 <h3 class="module-title">Patient Billing</h3>
                 <p class="module-desc">Invoices, payments and receipts</p>
-                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
               </a>
             </div>
 
@@ -416,7 +379,6 @@
                 <span class="module-icon"><i class="bi bi-journal-text"></i></span>
                 <h3 class="module-title">Journal</h3>
                 <p class="module-desc">Ledger entries and accounting</p>
-                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
               </a>
             </div>
 
@@ -426,7 +388,6 @@
                 <span class="module-icon"><i class="bi bi-person-walking"></i></span>
                 <h3 class="module-title">Outpatient</h3>
                 <p class="module-desc">OPD queues, consultations and notes</p>
-                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
               </a>
             </div>
 
@@ -436,7 +397,6 @@
                 <span class="module-icon"><i class="bi bi-clipboard2-pulse"></i></span>
                 <h3 class="module-title">Inpatient</h3>
                 <p class="module-desc">Admissions, rounds and discharge</p>
-                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
               </a>
             </div>
 
@@ -446,7 +406,6 @@
                 <span class="module-icon"><i class="bi bi-clipboard2-data"></i></span>
                 <h3 class="module-title">Diagnostic Support</h3>
                 <p class="module-desc">Lab, imaging and test results</p>
-                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
               </a>
             </div>
 
@@ -456,7 +415,6 @@
                 <span class="module-icon"><i class="bi bi-heart-pulse"></i></span>
                 <h3 class="module-title">Accident &amp; Emergency</h3>
                 <p class="module-desc">Triage, resuscitation and A&amp;E flow</p>
-                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
               </a>
             </div>
 
@@ -466,7 +424,6 @@
                 <span class="module-icon"><i class="bi bi-bandaid"></i></span>
                 <h3 class="module-title">Operating Theatre</h3>
                 <p class="module-desc">Surgery schedules and theatre logs</p>
-                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
               </a>
             </div>
 
@@ -476,7 +433,6 @@
                 <span class="module-icon"><i class="bi bi-balloon-heart"></i></span>
                 <h3 class="module-title">Delivery Room</h3>
                 <p class="module-desc">Labour, delivery and newborn care</p>
-                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
               </a>
             </div>
 
@@ -486,7 +442,6 @@
                 <span class="module-icon"><i class="bi bi-activity"></i></span>
                 <h3 class="module-title">Critical Care</h3>
                 <p class="module-desc">ICU monitoring and charts</p>
-                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
               </a>
             </div>
 
@@ -496,7 +451,6 @@
                 <span class="module-icon"><i class="bi bi-folder2-open"></i></span>
                 <h3 class="module-title">Medical Records</h3>
                 <p class="module-desc">EMR, documents and archives</p>
-                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
               </a>
             </div>
 
@@ -506,7 +460,6 @@
                 <span class="module-icon"><i class="bi bi-collection"></i></span>
                 <h3 class="module-title">Catalogue</h3>
                 <p class="module-desc">Items, services and master data</p>
-                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
               </a>
             </div>
 
@@ -516,7 +469,6 @@
                 <span class="module-icon"><i class="bi bi-box-seam"></i></span>
                 <h3 class="module-title">Inventory</h3>
                 <p class="module-desc">Stock levels, batches and expiry</p>
-                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
               </a>
             </div>
 
@@ -526,7 +478,6 @@
                 <span class="module-icon"><i class="bi bi-capsule"></i></span>
                 <h3 class="module-title">Pharmacy</h3>
                 <p class="module-desc">Prescriptions and dispensing</p>
-                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
               </a>
             </div>
 
@@ -536,7 +487,6 @@
                 <span class="module-icon"><i class="bi bi-truck"></i></span>
                 <h3 class="module-title">Supplier</h3>
                 <p class="module-desc">Vendors, contracts and contacts</p>
-                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
               </a>
             </div>
 
@@ -546,7 +496,6 @@
                 <span class="module-icon"><i class="bi bi-cart-check"></i></span>
                 <h3 class="module-title">Purchasing</h3>
                 <p class="module-desc">Requisitions and purchase orders</p>
-                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
               </a>
             </div>
 
@@ -556,7 +505,6 @@
                 <span class="module-icon"><i class="bi bi-people"></i></span>
                 <h3 class="module-title">CRM</h3>
                 <p class="module-desc">Patient engagement and feedback</p>
-                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
               </a>
             </div>
 
@@ -566,7 +514,6 @@
                 <span class="module-icon"><i class="bi bi-graph-up-arrow"></i></span>
                 <h3 class="module-title">Analytics</h3>
                 <p class="module-desc">Reports, trends and KPIs</p>
-                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
               </a>
             </div>
 
@@ -576,7 +523,6 @@
                 <span class="module-icon"><i class="bi bi-speedometer2"></i></span>
                 <h3 class="module-title">Dashboard</h3>
                 <p class="module-desc">Hospital-wide live overview</p>
-                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
               </a>
             </div>
 
@@ -586,7 +532,6 @@
                 <span class="module-icon"><i class="bi bi-gear"></i></span>
                 <h3 class="module-title">Configuration</h3>
                 <p class="module-desc">Users, roles and system settings</p>
-                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
               </a>
             </div>
 
@@ -596,7 +541,6 @@
                 <span class="module-icon"><i class="bi bi-bookshelf"></i></span>
                 <h3 class="module-title">Library</h3>
                 <p class="module-desc">Protocols, guidelines and SOPs</p>
-                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
               </a>
             </div>
 
@@ -606,7 +550,6 @@
                 <span class="module-icon"><i class="bi bi-shield-plus"></i></span>
                 <h3 class="module-title">NHIS</h3>
                 <p class="module-desc">National insurance members and claims</p>
-                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
               </a>
             </div>
 
@@ -616,7 +559,6 @@
                 <span class="module-icon"><i class="bi bi-person-workspace"></i></span>
                 <h3 class="module-title">Doctor's Dashboard</h3>
                 <p class="module-desc">Your patients, schedule and tasks</p>
-                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
               </a>
             </div>
 
@@ -626,7 +568,7 @@
             <span class="empty-icon"><i class="bi bi-search"></i></span>
             <h3>No modules found</h3>
             <p id="emptyText">Try a different keyword or category.</p>
-            <button class="btn btn-primary-grad btn-sm" type="button" id="resetFilters">Show all modules</button>
+            <button class="btn btn-primary btn-sm" type="button" id="resetFilters">Show all modules</button>
           </div>
         </section>
       </main>

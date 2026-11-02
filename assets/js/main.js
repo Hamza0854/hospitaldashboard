@@ -89,7 +89,7 @@
     const expiry = new Date(subAlert.dataset.expiry + 'T23:59:59');
     const days = Math.ceil((expiry - new Date()) / 86400000);
     const badge = $('#subDays');
-    if (badge) badge.textContent = days > 0 ? `${days} day${days === 1 ? '' : 's'} left` : 'Expired';
+    if (badge) badge.textContent = days > 0 ? `(${days} day${days === 1 ? '' : 's'} left)` : '(expired)';
 
     if (sessionStorage.getItem('ke-sub-dismissed') === '1') subAlert.remove();
 
@@ -157,7 +157,7 @@
         store.set(FAV_KEY, JSON.stringify(favs));
         btn.setAttribute('aria-pressed', String(!active));
         btn.innerHTML = `<i class="bi ${!active ? 'bi-star-fill' : 'bi-star'}"></i>`;
-        btn.classList.remove('pop'); void btn.offsetWidth; btn.classList.add('pop');
+        
         if (filter === 'favourites') apply();
       });
     });
