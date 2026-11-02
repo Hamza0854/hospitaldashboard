@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- ===== SEO ===== -->
+  <title>Dashboard | Adam eHospital Suite – Hospital Management Portal</title>
+  <meta name="description" content="Adam eHospital Suite dashboard: one secure portal to manage patients, appointments, beds, billing, claims, NHIS, pharmacy, inventory, theatre and analytics.">
+  <meta name="keywords" content="hospital management system, eHospital, patient management, hospital billing, NHIS claims, pharmacy inventory, bed management">
+  <meta name="author" content="Adam eHospital Suite">
+  <!-- Logged-in portal: keep it out of search results. Remove on public pages (login, landing). -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#FFFFFF">
+  <meta name="color-scheme" content="light dark">
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Adam eHospital Suite">
+  <meta property="og:title" content="Adam eHospital Suite – Hospital Management Portal">
+  <meta property="og:description" content="Manage every department of your hospital from one modern, secure dashboard.">
+  <meta property="og:image" content="assets/images/og-cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+
+  <!-- ===== Fonts & libraries ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- Apply saved theme before paint (prevents flash) -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('ke-theme');
+        if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-bs-theme', t);
+        if (localStorage.getItem('ke-sidebar') === 'collapsed') document.documentElement.classList.add('pre-collapsed');
+      } catch (e) {}
+    })();
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <div class="app">
+
+    <!-- =====================================================
+         SIDEBAR (shared across all pages)
+    ====================================================== -->
+    <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+      <div class="sidebar-brand">
+        <a href="index.html" class="brand" aria-label="Adam eHospital Suite home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" width="40" height="40">
+              <defs>
+                <linearGradient id="bm" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#6366F1"/><stop offset="1" stop-color="#4338CA"/>
+                </linearGradient>
+              </defs>
+              <rect width="40" height="40" rx="12" fill="url(#bm)"/>
+              <path d="M17 10h6v7h7v6h-7v7h-6v-7h-7v-6h7z" fill="#FFFFFF"/>
+            </svg>
+          </span>
+          <span class="brand-text">
+            <strong>Adam</strong>
+            <small>eHospital Suite</small>
+          </span>
+        </a>
+        <button class="sidebar-close d-xl-none" type="button" data-sidebar-close aria-label="Close menu">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <p class="nav-label">Overview</p>
+        <ul>
+          <li><a class="nav-item-link active" href="index.html" aria-current="page"><i class="bi bi-grid-1x2"></i><span class="nav-text">Home</span></a></li>
+          <li><a class="nav-item-link" href="dashboard.html"><i class="bi bi-speedometer2"></i><span class="nav-text">Dashboard</span></a></li>
+          <li><a class="nav-item-link" href="doctors-dashboard.html"><i class="bi bi-person-workspace"></i><span class="nav-text">Doctor's Dashboard</span></a></li>
+          <li><a class="nav-item-link" href="analytics.html"><i class="bi bi-graph-up-arrow"></i><span class="nav-text">Analytics</span></a></li>
+        </ul>
+
+        <p class="nav-label">Patient Care</p>
+        <ul>
+          <li><a class="nav-item-link" href="patient-profiling.html"><i class="bi bi-person-vcard"></i><span class="nav-text">Patient Profiling</span></a></li>
+          <li><a class="nav-item-link" href="registrations-appointments.html"><i class="bi bi-calendar2-check"></i><span class="nav-text">Registrations</span></a></li>
+          <li><a class="nav-item-link" href="outpatient.html"><i class="bi bi-person-walking"></i><span class="nav-text">Outpatient</span></a></li>
+          <li><a class="nav-item-link" href="inpatient.html"><i class="bi bi-clipboard2-pulse"></i><span class="nav-text">Inpatient</span></a></li>
+          <li><a class="nav-item-link" href="bed-management.html"><i class="bi bi-hospital"></i><span class="nav-text">Bed Management</span></a></li>
+          <li><a class="nav-item-link" href="medical-records.html"><i class="bi bi-folder2-open"></i><span class="nav-text">Medical Records</span></a></li>
+        </ul>
+
+        <p class="nav-label">Clinical</p>
+        <ul>
+          <li><a class="nav-item-link" href="accident-emergency.html"><i class="bi bi-heart-pulse"></i><span class="nav-text">Accident &amp; Emergency</span></a></li>
+          <li><a class="nav-item-link" href="operating-theatre.html"><i class="bi bi-bandaid"></i><span class="nav-text">Operating Theatre</span></a></li>
+          <li><a class="nav-item-link" href="delivery-room.html"><i class="bi bi-balloon-heart"></i><span class="nav-text">Delivery Room</span></a></li>
+          <li><a class="nav-item-link" href="critical-care.html"><i class="bi bi-activity"></i><span class="nav-text">Critical Care</span></a></li>
+          <li><a class="nav-item-link" href="diagnostic-support.html"><i class="bi bi-clipboard2-data"></i><span class="nav-text">Diagnostic Support</span></a></li>
+          <li><a class="nav-item-link" href="pharmacy.html"><i class="bi bi-capsule"></i><span class="nav-text">Pharmacy</span></a></li>
+        </ul>
+
+        <p class="nav-label">Finance</p>
+        <ul>
+          <li><a class="nav-item-link" href="patient-billing.html"><i class="bi bi-receipt"></i><span class="nav-text">Patient Billing</span></a></li>
+          <li><a class="nav-item-link" href="tariff-management.html"><i class="bi bi-tags"></i><span class="nav-text">Tariff Management</span></a></li>
+          <li><a class="nav-item-link" href="claims.html"><i class="bi bi-file-earmark-medical"></i><span class="nav-text">Claims</span></a></li>
+          <li><a class="nav-item-link" href="nhis.html"><i class="bi bi-shield-plus"></i><span class="nav-text">NHIS</span></a></li>
+          <li><a class="nav-item-link" href="journal.html"><i class="bi bi-journal-text"></i><span class="nav-text">Journal</span></a></li>
+        </ul>
+
+        <p class="nav-label">Supply Chain</p>
+        <ul>
+          <li><a class="nav-item-link" href="inventory.html"><i class="bi bi-box-seam"></i><span class="nav-text">Inventory</span></a></li>
+          <li><a class="nav-item-link" href="purchasing.html"><i class="bi bi-cart-check"></i><span class="nav-text">Purchasing</span></a></li>
+          <li><a class="nav-item-link" href="supplier.html"><i class="bi bi-truck"></i><span class="nav-text">Supplier</span></a></li>
+          <li><a class="nav-item-link" href="catalogue.html"><i class="bi bi-collection"></i><span class="nav-text">Catalogue</span></a></li>
+        </ul>
+
+        <p class="nav-label">Administration</p>
+        <ul>
+          <li><a class="nav-item-link" href="crm.html"><i class="bi bi-people"></i><span class="nav-text">CRM</span></a></li>
+          <li><a class="nav-item-link" href="library.html"><i class="bi bi-bookshelf"></i><span class="nav-text">Library</span></a></li>
+          <li><a class="nav-item-link" href="configuration.html"><i class="bi bi-gear"></i><span class="nav-text">Configuration</span></a></li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="plan-card">
+          <span class="plan-badge"><i class="bi bi-gem"></i> Premium</span>
+          <p class="mb-1 fw-semibold">Subscription active</p>
+          <p class="plan-meta mb-0">Renews on <time datetime="2026-11-21">21 Nov 2026</time></p>
+        </div>
+        <ul class="sidebar-utility">
+          <li><a class="nav-item-link" href="help.html"><i class="bi bi-question-circle"></i><span class="nav-text">Help Center</span></a></li>
+          <li><a class="nav-item-link" href="login.html"><i class="bi bi-box-arrow-right"></i><span class="nav-text">Log out</span></a></li>
+        </ul>
+      </div>
+    </aside>
+    <div class="sidebar-backdrop" data-sidebar-close aria-hidden="true"></div>
+
+    <!-- =====================================================
+         MAIN AREA
+    ====================================================== -->
+    <div class="main-wrap">
+
+      <!-- TOPBAR (shared) -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="icon-btn" type="button" id="sidebarToggle" aria-label="Toggle navigation" aria-controls="sidebar" aria-expanded="false">
+            <i class="bi bi-list"></i>
+          </button>
+          <nav aria-label="breadcrumb" class="topbar-crumb">
+            <ol class="breadcrumb mb-0">
+              <li class="breadcrumb-item"><a href="index.html"><i class="bi bi-house-door"></i></a></li>
+              <li class="breadcrumb-item active" aria-current="page">Home</li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="topbar-right">
+          <a class="icon-btn d-none d-sm-inline-flex" href="calendar.html" aria-label="Calendar" title="Calendar">
+            <i class="bi bi-calendar3"></i>
+          </a>
+          <a class="icon-btn icon-btn--whatsapp d-none d-sm-inline-flex" href="https://wa.me/" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp">
+            <i class="bi bi-whatsapp"></i>
+          </a>
+          <button class="icon-btn" type="button" id="themeToggle" aria-label="Switch colour theme" title="Switch theme">
+            <i class="bi bi-moon-stars"></i>
+          </button>
+
+          <div class="dropdown">
+            <button class="icon-btn has-dot" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Notifications (3 new)">
+              <i class="bi bi-bell"></i>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end notif-menu">
+              <div class="notif-head">
+                <strong>Notifications</strong><span class="badge-soft">3 new</span>
+              </div>
+              <a class="notif-item" href="#">
+                <span class="notif-icon tone-rose"><i class="bi bi-heart-pulse"></i></span>
+                <span><strong>New A&amp;E admission</strong><small>Bay 4 · 5 min ago</small></span>
+              </a>
+              <a class="notif-item" href="#">
+                <span class="notif-icon tone-amber"><i class="bi bi-box-seam"></i></span>
+                <span><strong>Low stock: Amoxicillin 500mg</strong><small>Pharmacy · 32 min ago</small></span>
+              </a>
+              <a class="notif-item" href="#">
+                <span class="notif-icon tone-emerald"><i class="bi bi-shield-check"></i></span>
+                <span><strong>NHIS batch #2041 approved</strong><small>Claims · 1 hr ago</small></span>
+              </a>
+              <a class="notif-foot" href="notifications.html">View all notifications</a>
+            </div>
+          </div>
+
+          <div class="dropdown">
+            <button class="user-chip" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Account menu">
+              <span class="avatar" aria-hidden="true">SA</span>
+              <span class="user-meta d-none d-md-flex">
+                <strong>System Admin</strong>
+                <small>Administrator</small>
+              </span>
+              <i class="bi bi-chevron-down d-none d-md-inline"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end user-menu">
+              <li><a class="dropdown-item" href="profile.html"><i class="bi bi-person"></i> My profile</a></li>
+              <li><a class="dropdown-item" href="configuration.html"><i class="bi bi-gear"></i> Settings</a></li>
+              <li><a class="dropdown-item d-sm-none" href="calendar.html"><i class="bi bi-calendar3"></i> Calendar</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-danger" href="login.html"><i class="bi bi-box-arrow-right"></i> Log out</a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+      <!-- PAGE CONTENT -->
+      <main id="main" class="content" tabindex="-1">
+
+        <!-- Subscription notice -->
+        <div class="sub-alert reveal" id="subAlert" data-expiry="2026-11-21" role="status">
+          <span class="sub-alert-icon"><i class="bi bi-hourglass-split"></i></span>
+          <p class="sub-alert-text mb-0">
+            Your subscription expires on <strong><time datetime="2026-11-21">21 Nov 2026</time></strong>.
+            Please contact <strong>support</strong> for renewal.
+            <span class="sub-alert-days" id="subDays"></span>
+          </p>
+          <a class="btn btn-gold btn-sm" href="mailto:support@ksatria.com">Renew now</a>
+          <button class="sub-alert-close" type="button" id="subAlertClose" aria-label="Dismiss notice">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+
+        <!-- Hero -->
+        <section class="hero reveal" aria-labelledby="heroTitle">
+          <div class="hero-body">
+            <span class="eyebrow"><i class="bi bi-stars"></i> Adam eHospital Suite</span>
+            <h1 id="heroTitle"><span id="greeting">Welcome back</span>, <span class="text-gold">System Admin</span></h1>
+            <p class="hero-lead">Every department of your hospital, in one place. Today is <time id="todayDate"></time>.</p>
+            <div class="hero-actions">
+              <a href="registrations-appointments.html" class="btn btn-light-glass"><i class="bi bi-person-plus"></i> New registration</a>
+              <a href="registrations-appointments.html#book" class="btn btn-outline-glass"><i class="bi bi-calendar-plus"></i> Book appointment</a>
+            </div>
+          </div>
+
+          <ul class="hero-stats" aria-label="Today at a glance">
+            <li>
+              <span class="hs-icon"><i class="bi bi-people"></i></span>
+              <strong data-count="248">0</strong>
+              <small>Patients today</small>
+            </li>
+            <li>
+              <span class="hs-icon"><i class="bi bi-hospital"></i></span>
+              <strong data-count="82" data-suffix="%">0</strong>
+              <small>Bed occupancy</small>
+            </li>
+            <li>
+              <span class="hs-icon"><i class="bi bi-person-badge"></i></span>
+              <strong data-count="36">0</strong>
+              <small>Doctors on duty</small>
+            </li>
+          </ul>
+        </section>
+
+        <!-- KPI cards -->
+        <section class="kpi-grid" aria-label="Key metrics">
+          <article class="kpi-card reveal tone-indigo">
+            <div class="kpi-top">
+              <span class="kpi-icon"><i class="bi bi-person-walking"></i></span>
+              <span class="trend up"><i class="bi bi-arrow-up-right"></i> 12%</span>
+            </div>
+            <h2 class="kpi-label">Outpatient visits</h2>
+            <p class="kpi-value" data-count="1284">0</p>
+            <svg class="spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0 26 L14 22 L28 24 L42 15 L56 18 L70 9 L84 12 L100 4 L100 32 L0 32Z" class="spark-fill"/>
+              <polyline points="0,26 14,22 28,24 42,15 56,18 70,9 84,12 100,4" class="spark-line"/>
+            </svg>
+          </article>
+
+          <article class="kpi-card reveal tone-emerald">
+            <div class="kpi-top">
+              <span class="kpi-icon"><i class="bi bi-cash-stack"></i></span>
+              <span class="trend up"><i class="bi bi-arrow-up-right"></i> 8.4%</span>
+            </div>
+            <h2 class="kpi-label">Revenue today</h2>
+            <p class="kpi-value" data-count="84250" data-prefix="GH₵ ">0</p>
+            <svg class="spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0 24 L14 25 L28 18 L42 20 L56 12 L70 14 L84 7 L100 9 L100 32 L0 32Z" class="spark-fill"/>
+              <polyline points="0,24 14,25 28,18 42,20 56,12 70,14 84,7 100,9" class="spark-line"/>
+            </svg>
+          </article>
+
+          <article class="kpi-card reveal tone-amber">
+            <div class="kpi-top">
+              <span class="kpi-icon"><i class="bi bi-file-earmark-medical"></i></span>
+              <span class="trend down"><i class="bi bi-arrow-down-right"></i> 3.1%</span>
+            </div>
+            <h2 class="kpi-label">Pending claims</h2>
+            <p class="kpi-value" data-count="57">0</p>
+            <svg class="spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0 8 L14 10 L28 7 L42 14 L56 12 L70 18 L84 16 L100 22 L100 32 L0 32Z" class="spark-fill"/>
+              <polyline points="0,8 14,10 28,7 42,14 56,12 70,18 84,16 100,22" class="spark-line"/>
+            </svg>
+          </article>
+
+          <article class="kpi-card reveal tone-rose">
+            <div class="kpi-top">
+              <span class="kpi-icon"><i class="bi bi-heart-pulse"></i></span>
+              <span class="trend neutral"><i class="bi bi-dash"></i> Stable</span>
+            </div>
+            <h2 class="kpi-label">Emergency cases</h2>
+            <p class="kpi-value" data-count="19">0</p>
+            <svg class="spark" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0 18 L14 14 L28 20 L42 12 L56 19 L70 13 L84 17 L100 14 L100 32 L0 32Z" class="spark-fill"/>
+              <polyline points="0,18 14,14 28,20 42,12 56,19 70,13 84,17 100,14" class="spark-line"/>
+            </svg>
+          </article>
+        </section>
+
+        <!-- Modules -->
+        <section class="modules" aria-labelledby="modulesTitle">
+          <div class="section-head">
+            <div>
+              <h2 id="modulesTitle" class="section-title">What area would you like to access?</h2>
+              <p class="section-sub mb-0" id="moduleCount" aria-live="polite">27 modules available</p>
+            </div>
+            <label class="search-field" for="moduleSearch">
+              <i class="bi bi-search" aria-hidden="true"></i>
+              <input type="search" id="moduleSearch" placeholder="Search modules…" autocomplete="off" aria-label="Search modules">
+              <kbd aria-hidden="true">/</kbd>
+            </label>
+          </div>
+
+          <div class="chips" role="tablist" aria-label="Filter modules by category">
+            <button class="chip active" type="button" role="tab" aria-selected="true" data-filter="all">All</button>
+            <button class="chip" type="button" role="tab" aria-selected="false" data-filter="favourites"><i class="bi bi-star-fill"></i> Favourites</button>
+            <button class="chip" type="button" role="tab" aria-selected="false" data-filter="patient">Patient Care</button>
+            <button class="chip" type="button" role="tab" aria-selected="false" data-filter="clinical">Clinical</button>
+            <button class="chip" type="button" role="tab" aria-selected="false" data-filter="finance">Finance</button>
+            <button class="chip" type="button" role="tab" aria-selected="false" data-filter="supply">Supply Chain</button>
+            <button class="chip" type="button" role="tab" aria-selected="false" data-filter="insights">Insights</button>
+            <button class="chip" type="button" role="tab" aria-selected="false" data-filter="admin">Administration</button>
+          </div>
+
+          <div class="module-grid" id="moduleGrid">
+
+            <div class="module-card" data-category="patient">
+              <button class="fav-btn" type="button" aria-pressed="false" aria-label="Favourite Patient Profiling"><i class="bi bi-star"></i></button>
+              <a class="module-link" href="patient-profiling.html">
+                <span class="module-icon"><i class="bi bi-person-vcard"></i></span>
+                <h3 class="module-title">Patient Profiling</h3>
+                <p class="module-desc">Demographics, history and visit timeline</p>
+                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
+              </a>
+            </div>
+
+            <div class="module-card" data-category="patient">
+              <button class="fav-btn" type="button" aria-pressed="false" aria-label="Favourite Registrations and Appointments"><i class="bi bi-star"></i></button>
+              <a class="module-link" href="registrations-appointments.html">
+                <span class="module-icon"><i class="bi bi-calendar2-check"></i></span>
+                <h3 class="module-title">Registrations &amp; Appointments</h3>
+                <p class="module-desc">Register patients and manage bookings</p>
+                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
+              </a>
+            </div>
+
+            <div class="module-card" data-category="patient">
+              <button class="fav-btn" type="button" aria-pressed="false" aria-label="Favourite Bed Management"><i class="bi bi-star"></i></button>
+              <a class="module-link" href="bed-management.html">
+                <span class="module-icon"><i class="bi bi-hospital"></i></span>
+                <h3 class="module-title">Bed Management</h3>
+                <p class="module-desc">Wards, occupancy and transfers</p>
+                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
+              </a>
+            </div>
+
+            <div class="module-card" data-category="finance">
+              <button class="fav-btn" type="button" aria-pressed="false" aria-label="Favourite Tariff Management"><i class="bi bi-star"></i></button>
+              <a class="module-link" href="tariff-management.html">
+                <span class="module-icon"><i class="bi bi-tags"></i></span>
+                <h3 class="module-title">Tariff Management</h3>
+                <p class="module-desc">Service prices, packages and schemes</p>
+                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
+              </a>
+            </div>
+
+            <div class="module-card" data-category="finance">
+              <button class="fav-btn" type="button" aria-pressed="false" aria-label="Favourite Claims"><i class="bi bi-star"></i></button>
+              <a class="module-link" href="claims.html">
+                <span class="module-icon"><i class="bi bi-file-earmark-medical"></i></span>
+                <h3 class="module-title">Claims</h3>
+                <p class="module-desc">Insurance claims and settlements</p>
+                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
+              </a>
+            </div>
+
+            <div class="module-card" data-category="finance">
+              <button class="fav-btn" type="button" aria-pressed="false" aria-label="Favourite Patient Billing"><i class="bi bi-star"></i></button>
+              <a class="module-link" href="patient-billing.html">
+                <span class="module-icon"><i class="bi bi-receipt"></i></span>
+                <h3 class="module-title">Patient Billing</h3>
+                <p class="module-desc">Invoices, payments and receipts</p>
+                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
+              </a>
+            </div>
+
+            <div class="module-card" data-category="finance">
+              <button class="fav-btn" type="button" aria-pressed="false" aria-label="Favourite Journal"><i class="bi bi-star"></i></button>
+              <a class="module-link" href="journal.html">
+                <span class="module-icon"><i class="bi bi-journal-text"></i></span>
+                <h3 class="module-title">Journal</h3>
+                <p class="module-desc">Ledger entries and accounting</p>
+                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
+              </a>
+            </div>
+
+            <div class="module-card" data-category="patient">
+              <button class="fav-btn" type="button" aria-pressed="false" aria-label="Favourite Outpatient"><i class="bi bi-star"></i></button>
+              <a class="module-link" href="outpatient.html">
+                <span class="module-icon"><i class="bi bi-person-walking"></i></span>
+                <h3 class="module-title">Outpatient</h3>
+                <p class="module-desc">OPD queues, consultations and notes</p>
+                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
+              </a>
+            </div>
+
+            <div class="module-card" data-category="patient">
+              <button class="fav-btn" type="button" aria-pressed="false" aria-label="Favourite Inpatient"><i class="bi bi-star"></i></button>
+              <a class="module-link" href="inpatient.html">
+                <span class="module-icon"><i class="bi bi-clipboard2-pulse"></i></span>
+                <h3 class="module-title">Inpatient</h3>
+                <p class="module-desc">Admissions, rounds and discharge</p>
+                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
+              </a>
+            </div>
+
+            <div class="module-card" data-category="clinical">
+              <button class="fav-btn" type="button" aria-pressed="false" aria-label="Favourite Diagnostic Support"><i class="bi bi-star"></i></button>
+              <a class="module-link" href="diagnostic-support.html">
+                <span class="module-icon"><i class="bi bi-clipboard2-data"></i></span>
+                <h3 class="module-title">Diagnostic Support</h3>
+                <p class="module-desc">Lab, imaging and test results</p>
+                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
+              </a>
+            </div>
+
+            <div class="module-card" data-category="clinical">
+              <button class="fav-btn" type="button" aria-pressed="false" aria-label="Favourite Accident and Emergency"><i class="bi bi-star"></i></button>
+              <a class="module-link" href="accident-emergency.html">
+                <span class="module-icon"><i class="bi bi-heart-pulse"></i></span>
+                <h3 class="module-title">Accident &amp; Emergency</h3>
+                <p class="module-desc">Triage, resuscitation and A&amp;E flow</p>
+                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
+              </a>
+            </div>
+
+            <div class="module-card" data-category="clinical">
+              <button class="fav-btn" type="button" aria-pressed="false" aria-label="Favourite Operating Theatre"><i class="bi bi-star"></i></button>
+              <a class="module-link" href="operating-theatre.html">
+                <span class="module-icon"><i class="bi bi-bandaid"></i></span>
+                <h3 class="module-title">Operating Theatre</h3>
+                <p class="module-desc">Surgery schedules and theatre logs</p>
+                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
+              </a>
+            </div>
+
+            <div class="module-card" data-category="clinical">
+              <button class="fav-btn" type="button" aria-pressed="false" aria-label="Favourite Delivery Room"><i class="bi bi-star"></i></button>
+              <a class="module-link" href="delivery-room.html">
+                <span class="module-icon"><i class="bi bi-balloon-heart"></i></span>
+                <h3 class="module-title">Delivery Room</h3>
+                <p class="module-desc">Labour, delivery and newborn care</p>
+                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
+              </a>
+            </div>
+
+            <div class="module-card" data-category="clinical">
+              <button class="fav-btn" type="button" aria-pressed="false" aria-label="Favourite Critical Care"><i class="bi bi-star"></i></button>
+              <a class="module-link" href="critical-care.html">
+                <span class="module-icon"><i class="bi bi-activity"></i></span>
+                <h3 class="module-title">Critical Care</h3>
+                <p class="module-desc">ICU monitoring and charts</p>
+                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
+              </a>
+            </div>
+
+            <div class="module-card" data-category="patient">
+              <button class="fav-btn" type="button" aria-pressed="false" aria-label="Favourite Medical Records"><i class="bi bi-star"></i></button>
+              <a class="module-link" href="medical-records.html">
+                <span class="module-icon"><i class="bi bi-folder2-open"></i></span>
+                <h3 class="module-title">Medical Records</h3>
+                <p class="module-desc">EMR, documents and archives</p>
+                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
+              </a>
+            </div>
+
+            <div class="module-card" data-category="supply">
+              <button class="fav-btn" type="button" aria-pressed="false" aria-label="Favourite Catalogue"><i class="bi bi-star"></i></button>
+              <a class="module-link" href="catalogue.html">
+                <span class="module-icon"><i class="bi bi-collection"></i></span>
+                <h3 class="module-title">Catalogue</h3>
+                <p class="module-desc">Items, services and master data</p>
+                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
+              </a>
+            </div>
+
+            <div class="module-card" data-category="supply">
+              <button class="fav-btn" type="button" aria-pressed="false" aria-label="Favourite Inventory"><i class="bi bi-star"></i></button>
+              <a class="module-link" href="inventory.html">
+                <span class="module-icon"><i class="bi bi-box-seam"></i></span>
+                <h3 class="module-title">Inventory</h3>
+                <p class="module-desc">Stock levels, batches and expiry</p>
+                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
+              </a>
+            </div>
+
+            <div class="module-card" data-category="clinical">
+              <button class="fav-btn" type="button" aria-pressed="false" aria-label="Favourite Pharmacy"><i class="bi bi-star"></i></button>
+              <a class="module-link" href="pharmacy.html">
+                <span class="module-icon"><i class="bi bi-capsule"></i></span>
+                <h3 class="module-title">Pharmacy</h3>
+                <p class="module-desc">Prescriptions and dispensing</p>
+                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
+              </a>
+            </div>
+
+            <div class="module-card" data-category="supply">
+              <button class="fav-btn" type="button" aria-pressed="false" aria-label="Favourite Supplier"><i class="bi bi-star"></i></button>
+              <a class="module-link" href="supplier.html">
+                <span class="module-icon"><i class="bi bi-truck"></i></span>
+                <h3 class="module-title">Supplier</h3>
+                <p class="module-desc">Vendors, contracts and contacts</p>
+                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
+              </a>
+            </div>
+
+            <div class="module-card" data-category="supply">
+              <button class="fav-btn" type="button" aria-pressed="false" aria-label="Favourite Purchasing"><i class="bi bi-star"></i></button>
+              <a class="module-link" href="purchasing.html">
+                <span class="module-icon"><i class="bi bi-cart-check"></i></span>
+                <h3 class="module-title">Purchasing</h3>
+                <p class="module-desc">Requisitions and purchase orders</p>
+                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
+              </a>
+            </div>
+
+            <div class="module-card" data-category="admin">
+              <button class="fav-btn" type="button" aria-pressed="false" aria-label="Favourite CRM"><i class="bi bi-star"></i></button>
+              <a class="module-link" href="crm.html">
+                <span class="module-icon"><i class="bi bi-people"></i></span>
+                <h3 class="module-title">CRM</h3>
+                <p class="module-desc">Patient engagement and feedback</p>
+                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
+              </a>
+            </div>
+
+            <div class="module-card" data-category="insights">
+              <button class="fav-btn" type="button" aria-pressed="false" aria-label="Favourite Analytics"><i class="bi bi-star"></i></button>
+              <a class="module-link" href="analytics.html">
+                <span class="module-icon"><i class="bi bi-graph-up-arrow"></i></span>
+                <h3 class="module-title">Analytics</h3>
+                <p class="module-desc">Reports, trends and KPIs</p>
+                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
+              </a>
+            </div>
+
+            <div class="module-card" data-category="insights">
+              <button class="fav-btn" type="button" aria-pressed="false" aria-label="Favourite Dashboard"><i class="bi bi-star"></i></button>
+              <a class="module-link" href="dashboard.html">
+                <span class="module-icon"><i class="bi bi-speedometer2"></i></span>
+                <h3 class="module-title">Dashboard</h3>
+                <p class="module-desc">Hospital-wide live overview</p>
+                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
+              </a>
+            </div>
+
+            <div class="module-card" data-category="admin">
+              <button class="fav-btn" type="button" aria-pressed="false" aria-label="Favourite Configuration"><i class="bi bi-star"></i></button>
+              <a class="module-link" href="configuration.html">
+                <span class="module-icon"><i class="bi bi-gear"></i></span>
+                <h3 class="module-title">Configuration</h3>
+                <p class="module-desc">Users, roles and system settings</p>
+                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
+              </a>
+            </div>
+
+            <div class="module-card" data-category="admin">
+              <button class="fav-btn" type="button" aria-pressed="false" aria-label="Favourite Library"><i class="bi bi-star"></i></button>
+              <a class="module-link" href="library.html">
+                <span class="module-icon"><i class="bi bi-bookshelf"></i></span>
+                <h3 class="module-title">Library</h3>
+                <p class="module-desc">Protocols, guidelines and SOPs</p>
+                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
+              </a>
+            </div>
+
+            <div class="module-card" data-category="finance">
+              <button class="fav-btn" type="button" aria-pressed="false" aria-label="Favourite NHIS"><i class="bi bi-star"></i></button>
+              <a class="module-link" href="nhis.html">
+                <span class="module-icon"><i class="bi bi-shield-plus"></i></span>
+                <h3 class="module-title">NHIS</h3>
+                <p class="module-desc">National insurance members and claims</p>
+                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
+              </a>
+            </div>
+
+            <div class="module-card" data-category="insights">
+              <button class="fav-btn" type="button" aria-pressed="false" aria-label="Favourite Doctor's Dashboard"><i class="bi bi-star"></i></button>
+              <a class="module-link" href="doctors-dashboard.html">
+                <span class="module-icon"><i class="bi bi-person-workspace"></i></span>
+                <h3 class="module-title">Doctor's Dashboard</h3>
+                <p class="module-desc">Your patients, schedule and tasks</p>
+                <span class="module-go">Open <i class="bi bi-arrow-right"></i></span>
+              </a>
+            </div>
+
+          </div>
+
+          <div class="empty-state" id="emptyState" hidden>
+            <span class="empty-icon"><i class="bi bi-search"></i></span>
+            <h3>No modules found</h3>
+            <p id="emptyText">Try a different keyword or category.</p>
+            <button class="btn btn-primary-grad btn-sm" type="button" id="resetFilters">Show all modules</button>
+          </div>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <p class="mb-0">&copy; <span id="year">2026</span> Adam eHospital Suite. All rights reserved.</p>
+        <nav aria-label="Footer">
+          <a href="help.html">Support</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+        </nav>
+      </footer>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
